@@ -1,0 +1,32 @@
+Variable Types:
+
+i: integer
+f: float
+d: double
+b: logical
+
+s: string (e.g. "abc")
+ch: character array (e.g. 'a', 'abc')
+
+o: class object
+h: handle
+fh: function handle
+st: struct
+dt: datetime
+
+x: mixed
+
+v: vector
+m<d>: matrix of dimensionality d
+c<d>: cell array of dimensionality d
+t: table
+
+
+
+Examples:
+
+iNumberOfCats: a scalar integer
+vdTemperatures: a vector of doubles
+m2bRoiMask: a 2D matrix of booleans
+c1m2dMatrices: a 1D cell array containing 2D matrices of doubles
+oPerson1: a class object

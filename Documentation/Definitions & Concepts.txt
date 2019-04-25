@@ -1,0 +1,23 @@
+Classifier Parameters:
+
+The parameters of a classifier consist of the data required for that classifier to make a guess on testing data.
+A classifier's parameters therefore only exist after training has occurred.
+The parameters that a certain classifier has can differ between types of classifiers. For example, a simple 2D linear
+classifier's parameters would be the "m" and "b" values to describe the decision boundary of y=mx+b. A neural network's
+parameters would be the weights and biases of the neuron connections.
+A classifier's parameters are determined during training, and are therefore a function of:
+ 1) The training data
+ 2) The type of classifier
+ 3) The chosen hyperparmaters for the classifier
+
+
+Classifier Hyperparameters:
+
+A classifier's hyperparameters are non-constant values that determine how the classifier's parameters will be 
+determined during training. By changing the hyperparameters, a classifier's parameters may change even if the
+training data used remains constant.
+Examples of hyperparameters may be the number of neighbours for a nearest neighbour classifier, or the type of 
+regression used by a linear classifier.
+Hyperparameters can be set directly by the user, or they can be optimized by performing hyperparameter optimization.
+For hyperparameter optimization, some hyperparameters may be optimizable, while others may have to be determined
+manually, depending on the hyperparmaeter optimization framework used.
