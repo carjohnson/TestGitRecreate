@@ -1,0 +1,52 @@
+@startuml
+
+autonumber
+
+actor User
+
+User -> MATLABfitcXXX: Constructor
+
+group Load Parameters
+	MATLABfitcXXX -> MATLABClassifier: Constructor
+
+		MATLABClassifier -> Classifier: Constructor
+			
+			Classifier -> Disk: load(chClassifierHyperParametersFileName)
+			Classifier <-- Disk: tHyperParameters
+			
+		MATLABClassifier <-- Classifier: Constructor (Return)
+
+	MATLABfitcXXX <-- MATLABClassifier: Constructor (Return)
+end
+
+group Hyperparameter Optimization
+	MATLABfitcXXX -> Classifier: OptimizeHyperparameters
+	
+		Classifier -> MATLABClassifier: ImplementationSpecificOptimizeHyperparameters
+		
+			MATLABClassifier -> MATLABMachineLearningOptimizeParameters: OptimizeParameters
+			
+				MATLABMachineLearningOptimizeParameters -> MATLABMachineLearningOptimizeParameters: GetHyperParametersForOptimization
+				
+					MATLABMachineLearningOptimizeParameters -> MATLAB: hyperparameters
+					MATLABMachineLearningOptimizeParameters <-- MATLAB: hyperparameters (return)
+				
+				MATLABMachineLearningOptimizeParameters <-- MATLABMachineLearningOptimizeParameters: GetHyperParametersForOptimization (Return)
+			
+                MATLABMachineLearningOptimizeParameters -> MATLAB: fitcXXX
+                MATLABMachineLearningOptimizeParameters <-- MATLAB: fitcXXX (return)
+			
+			MATLABClassifier <-- MATLABMachineLearningOptimizeParameters: OptimizeParameters (Return)
+		
+		
+			MATLABClassifier -> MATLABClassifier: UpdateParametersAfterOptimization
+			MATLABClassifier <-- MATLABClassifier: UpdateParametersAfterOptimization (Return)
+		
+		Classifier <-- MATLABClassifier: ImplementationSpecificOptimizeHyperparameters (Return)
+	
+	MATLABfitcXXX <-- Classifier: OptimizeHyperparameters (Return)
+end
+	
+User <-- MATLABfitcXXX : Constructor (Return)
+
+@enduml
