@@ -4,7 +4,7 @@ function NewClass_TestSuite()
 % Runs all tests for the NewClass class
 
 % Primary Author: Your name here
-% Created: Feb 31, 2019
+% Created: Mmm dd, yyyy
 
 chFolderPath = 'ModuleName/Tests'; % a module is a folder off of the root directory (e.g. "Classifier", "FeatureValues")
 chCoverageFolderPath = 'ModuleName';
